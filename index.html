@@ -1,58 +1,164 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <title>AI Insight</title>
+<meta charset="UTF-8">
+<title>AI Portfolio Dashboard</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: white;
+}
 
-    .card {
-      background: rgba(255,255,255,0.05);
-      padding: 40px;
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      width: 90%;
-      max-width: 500px;
-    }
+/* Layout */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px;
+}
 
-    button {
-      padding: 15px 25px;
-      border: none;
-      border-radius: 12px;
-      background: #3b82f6;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-    }
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
 
-    button:hover {
-      background: #2563eb;
-    }
-  </style>
+.title {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.subtitle {
+  color: #94a3b8;
+  margin-top: 10px;
+}
+
+/* Card */
+.card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 25px;
+  margin-top: 20px;
+  backdrop-filter: blur(10px);
+}
+
+/* AI box */
+.ai-box {
+  background: rgba(59,130,246,0.1);
+  border: 1px solid rgba(59,130,246,0.3);
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 15px;
+}
+
+/* Button */
+button {
+  margin-top: 15px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  background: #3b82f6;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2563eb;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.tag {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+</style>
 </head>
 
 <body>
 
-  <div class="card">
-    <h1>AI Insight Report</h1>
-    <p>กดปุ่มเพื่อดูผลวิเคราะห์</p>
+<div class="container">
 
-    <!-- ไปหน้า redirect ของเรา -->
-    <a href="redirect.html">
-      <button>เปิด AI Analysis</button>
-    </a>
+  <!-- HEADER -->
+  <div class="header">
+    <div class="title">AI Portfolio Dashboard</div>
+    <div class="subtitle">Ampika Pratumtong | Data Analyst</div>
   </div>
+
+  <!-- ABOUT -->
+  <div class="card">
+    <h2>👩‍💻 About This Project</h2>
+    <p>
+      Portfolio นี้รวมงานวิเคราะห์ข้อมูล สถิติ และ Machine Learning
+      ที่พัฒนาเพื่อแก้ปัญหาจริงในด้านธุรกิจและพลังงาน
+    </p>
+  </div>
+
+  <!-- AI INSIGHT -->
+  <div class="card">
+    <h2>✨ AI Insight Summary</h2>
+
+    <div class="ai-box">
+      • ใช้ Statistical Modeling (Regression / Time Series)<br>
+      • ใช้ Machine Learning (Decision Tree / Classification)<br>
+      • วิเคราะห์ข้อมูลเชิงลึกเพื่อหา pattern และ trend<br>
+      • ผลลัพธ์สามารถนำไปใช้ในธุรกิจจริงได้
+    </div>
+
+    <button onclick="generateMore()">
+      Generate More Insight
+    </button>
+
+    <p id="more" style="margin-top:15px; color:#94a3b8;"></p>
+  </div>
+
+  <!-- PROJECT HIGHLIGHT -->
+  <div class="card">
+    <h2>📊 Highlight Projects</h2>
+
+    <div class="grid">
+      <div class="card">
+        <b>Electricity Forecast</b>
+        <div class="tag">Time Series</div>
+      </div>
+
+      <div class="card">
+        <b>ML Prediction</b>
+        <div class="tag">Decision Tree</div>
+      </div>
+
+      <div class="card">
+        <b>Data Analysis</b>
+        <div class="tag">Regression</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function generateMore() {
+  const messages = [
+    "โมเดลสามารถช่วยลดความผิดพลาดในการคาดการณ์ได้",
+    "ข้อมูลมี pattern ชัดเจนในเชิงเวลาและพฤติกรรม",
+    "สามารถนำไป optimize การตัดสินใจทางธุรกิจได้",
+    "Feature สำคัญมีผลต่อ outcome อย่างมีนัยสำคัญ"
+  ];
+
+  const random = messages[Math.floor(Math.random() * messages.length)];
+  document.getElementById("more").innerText = random;
+}
+</script>
 
 </body>
 </html>
